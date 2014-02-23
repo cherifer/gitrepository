@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MinuTrade.Travel.Models.Cidade>
+
+@{
+    ViewBag.Title = "Cidade";
+}
+
+<h2>Cidade</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdEstado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescricaoCidade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdEstado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescricaoCidade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdCidade }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdCidade }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdCidade })
+        </td>
+    </tr>
+}
+
+</table>

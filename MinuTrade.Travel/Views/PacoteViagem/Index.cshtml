@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MinuTrade.Travel.Models.PacoteViagem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCidadeOrigem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCidadeDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSaidaOrigem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataSaidoDestino)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NivelSatisfacaoCliente)
+        </th>
+        <th></th>
+    </tr>
+ 
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCidadeOrigem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCidadeDestino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSaidaOrigem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataSaidoDestino)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelSatisfacaoCliente)
+        </td>
+        <td>
+            @Html.ActionLink("Classificar", "Classificar", new { id=item.IdPacoteViagem })
+        </td>
+    </tr>
+}
+</table>

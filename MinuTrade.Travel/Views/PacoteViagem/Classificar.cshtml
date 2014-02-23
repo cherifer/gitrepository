@@ -1,0 +1,70 @@
+﻿@model MinuTrade.Travel.Models.PacoteViagem
+
+@{
+    ViewBag.Title = "Classificar";
+}
+
+<h2>Classificar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PacoteViagem</legend>
+
+        @Html.HiddenFor(model => model.IdPacoteViagem)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdCidadeOrigem)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.NomeCidadeOrigem)
+            @Html.HiddenFor(model => model.IdCidadeOrigem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdCidadeDestino)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.NomeCidadeDestino)
+            @Html.HiddenFor(model => model.IdCidadeDestino)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataSaidaOrigem)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.DataSaidaOrigem)
+            @Html.HiddenFor(model => model.DataSaidaOrigem)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DataSaidoDestino)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayTextFor(model => model.DataSaidoDestino)
+            @Html.HiddenFor(model => model.DataSaidoDestino)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NivelSatisfacaoCliente)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NivelSatisfacaoCliente)
+            @Html.ValidationMessageFor(model => model.NivelSatisfacaoCliente)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
